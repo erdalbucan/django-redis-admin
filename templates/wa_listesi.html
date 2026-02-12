@@ -1,0 +1,25 @@
+<h2>WhatsApp ve Lig Bazlı Talebe Listesi</h2>
+
+{% for abi, talebeler in gruplar.items %}
+    <div style="background-color: #eee; padding: 5px 15px; margin-top: 20px;">
+        <strong>Abi: {{ abi }}</strong>
+    </div>
+    <table border="1" style="width:100%; border-collapse: collapse;">
+        <thead>
+            <tr style="background-color: #f9f9f9;">
+                <th>Talebe İsmi</th>
+                <th>WhatsApp ID</th>
+                <th>Lig</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in talebeler %}
+            <tr>
+                <td>{{ t.isim }}</td>
+                <td><code>{{ t.wa_id }}</code></td>
+                <td><strong>{{ t.lig|upper }}</strong></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endfor %}
